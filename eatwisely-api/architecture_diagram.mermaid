@@ -1,0 +1,35 @@
+graph TD
+    A[Client] -->|HTTP Requests| B[API Gateway]
+    B --> C[Express.js API]
+    C --> D[Routes]
+    D --> E[Authentication]
+    D --> F[Recipe Generation]
+    D --> G[User Management]
+    D --> H[Payments]
+    D --> I[Feedback]
+    D --> J[Settings]
+    D --> K[Data]
+    C --> L[Utils]
+    C --> M[Error Handling]
+    
+    E --> N[Clerk]
+    F --> O[OpenAI]
+    F --> P[AWS Bedrock]
+    G --> Q[DynamoDB]
+    H --> R[Apple Pay]
+    H --> S[Google Pay]
+    I --> Q
+    J --> Q
+    K --> Q
+    
+    L --> T[Secrets Management]
+    L --> U[SNS]
+    L --> V[Sentry]
+    
+    M --> V
+    
+    C --> W[Serverless Framework]
+    W --> X[AWS Lambda]
+    
+    X --> Y[CloudWatch]
+    X --> Z[X-Ray]

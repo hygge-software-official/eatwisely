@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "eatwisely-f8bfa",
+  "private_key_id": "73f7536e30533a132d7f5bc688cfdc8595266dc9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCgTGpQb7tfLaWi\nJmH7bNJR7VAdc7NbY7WuoZuXs8fMLbQUgjozrHQcfSlHAiCogUdfG9DMXMw/TnPJ\ngvqnwBtf3OtAS0RtyzEgO79zc0XfUmsclTBMTogOukFjT6JXxyyTHkNaVWL5NKrD\ncLrSUwOZNQWVgdelx63zDgSwu385boqYAPWKpEFW4uZ0SS02DIzLBWVWMB2AaACh\ndkUBLoTaxz3OKl9/cwN80qIAg7Whtswf4rHJT1I4SB3pBtIxPrYWgdLNqOzN7wa6\nMVqpiGSY85aHPmbfplyg2HjKrjX7wkf0LL32jOWxpDzrTvQnKz3WhdDOJfZSR9ll\nwkODlUqnAgMBAAECggEAGpv0vft+MBOEvkD+3Ny4oQ7y0KDHMjGAFEgRawJV9UfU\n796aSL+k2qHQO1BYGYC0V05nv7Tb1tpwEBBlCXmzUZt7lcWoy00Cj6Y7Zq/I9oRY\n8Xq2dMRIg6FZf2HVwhp3BMjuR02LS3D5s82/xXAwVbtefO373TIjZwh5sNi/CspS\nVqUAP8+QkqVCK7dxQVAR4GpaZNn4RpVC6uVVFcYQn4BD/dIgZ19SL0+NKLBpK/FK\nP2W8aNdQemHjkd0CGLC1djn+VFAiecoDqszEidWpPQ0CTab/BBEu0pB3WlHPRZcv\nmZupBljc1+mR9elE/xU+Y4XgeZL5xAzCPcJ5BTfwkQKBgQDahpBRY+i0W17+LfaJ\njxa32ZjUOc8YMar9orPa6YzEngffsIh4PaR/ct0wJbCFlxhvi8wbTSWBZutc8yCm\nfgQprW42TwWauqtLBbCYFSGGlzjGORPM84NmKqGicxKu4wQymhOISIipytQ3M4o7\njLv9Ss9hpxama/Jwej/bMUy9CQKBgQC7yaMecwa/pBl0bel6MgAuZhCQGBx4YzK6\nd5aTVzXrf6B7jT1rEbbyk0uVMYyGjwsevq5G4zz2f78F0dvRWJDt5z4AizFivMZG\nkbyRwtMua8HXX255YHLO1y5YJb2EVYOISPYb9aY4irlLOAKWeWP+MTQ147+4ZyIU\npCUWIgVmLwKBgQDFbPcroTDW6QncaBgpVS34Mc3CRuwT9qN9/KWzLHdyFzgT3wCc\naUyZnGO7IQHm34hDFrDzJXKyAxK26izgXk9SfA5rYF822FjzMZPHAqhEWZEAfQan\njoVzIybehkol2JGtSchFwwo9JDMwIA9OF6qrfw/3MKbk+feRqNDSLisfSQKBgDpv\nss0E6nK0dB9hHKij6p6FsF3GwwVLiTuxfy/2kZbpLl2ERDqPVqkB4SFaO+qblNBK\nch0pFY13j1AWUBtDPkZqEUdGCWY6bFEFhPKu99yYN8f3sH8g3lkzaP6RL/qASeAd\nJEjrFoC92o9nrJZ6y/0L/r1OVBjkLxzRP6E1kQyNAoGAQyq/71/4o36BCKJfbdqQ\n9leuNtd2jHwuVzIaii7XX8itDo2EMDm1JnxyvzMgp9yg9SP29X4mj81ONj5dWpgk\nH0OgiC5EDy63QoKxmAs5Xmea1dvFOJhNHhRrCgutdTBEYugghdW9piOCge8atk6R\nQ+vCmW3Owu19JEXxNXZIntc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "eatwisely-app-android@eatwisely-f8bfa.iam.gserviceaccount.com",
+  "client_id": "109708466766419975514",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/eatwisely-app-android%40eatwisely-f8bfa.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

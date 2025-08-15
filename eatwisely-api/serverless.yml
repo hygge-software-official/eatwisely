@@ -1,0 +1,101 @@
+org: eatwiselypers
+app: eatwisely-api
+service: eatwisely-api
+frameworkVersion: '4'
+
+custom:
+  secretsManager:
+    secretName: eatwisely-api-secrets
+  logRetentionInDays: 14
+  allowedHeaders:
+    - Content-Type
+    - X-Amz-Date
+    - Authorization
+    - X-Api-Key
+    - X-Amz-Security-Token
+    - X-Amz-User-Agent
+  allowedOrigins:
+    - '*'
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+  logRetentionInDays: ${self:custom.logRetentionInDays}
+  tracing:
+    apiGateway: true
+    lambda: true
+  environment:
+    IS_OFFLINE: ${opt:stage, 'dev'}
+    SECRETS_MANAGER_SECRET_NAME: ${self:custom.secretsManager.secretName}
+    NODE_OPTIONS: --enable-source-maps
+    NODE_ENV: ${opt:stage, 'dev'}
+    USER_SETTINGS_TABLE: ${file(./utils/config.js):USER_SETTINGS_TABLE}
+    USER_RECIPES_TABLE: ${file(./utils/config.js):USER_RECIPES_TABLE}
+    USER_FEEDBACKS_TABLE: ${file(./utils/config.js):USER_FEEDBACKS_TABLE}
+    PAYMENTS_TABLE: ${file(./utils/config.js):PAYMENTS_TABLE}
+  logs:
+    restApi:
+      accessLogging: true
+      executionLogging: true
+      level: INFO
+      fullExecutionData: true
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - secretsmanager:GetSecretValue
+          Resource: arn:aws:secretsmanager:${self:provider.region}:*:secret:${self:custom.secretsManager.secretName}-*
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource:
+            - arn:aws:dynamodb:${self:provider.region}:*:table/recipeSandbox
+            - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.USER_SETTINGS_TABLE}
+            - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.USER_RECIPES_TABLE}
+            - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.USER_FEEDBACKS_TABLE}
+            - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.PAYMENTS_TABLE}
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+          Resource:
+            - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.USER_SETTINGS_TABLE}/index/*
+            - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.USER_RECIPES_TABLE}/index/*
+            - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.USER_FEEDBACKS_TABLE}/index/*
+            - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.PAYMENTS_TABLE}/index/*
+        - Effect: Allow
+          Action:
+            - xray:PutTraceSegments
+            - xray:PutTelemetryRecords
+          Resource: '*'
+
+functions:
+  api:
+    handler: handler.handler
+    timeout: 30
+    memorySize: 256
+    events:
+      - http:
+          path: /
+          method: any
+          cors:
+            origin: ${self:custom.allowedOrigins}
+            headers: ${self:custom.allowedHeaders}
+      - http:
+          path: /{proxy+}
+          method: any
+          cors:
+            origin: ${self:custom.allowedOrigins}
+            headers: ${self:custom.allowedHeaders}
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-tracing

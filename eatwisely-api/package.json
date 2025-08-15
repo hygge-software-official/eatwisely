@@ -1,0 +1,64 @@
+{
+  "name": "eatwisely-express-api",
+  "version": "1.0.1",
+  "description": "NodeJS Express API for eatwise mobile application",
+  "author": {
+    "name": "eatwisely",
+    "email": "support@eatwisely.app"
+  },
+  "type": "module",
+  "scripts": {
+    "deploy": "NODE_ENV=development sls deploy --stage dev",
+    "deploy:prod": "sls deploy --stage prod",
+    "sls:login": "serverless login",
+    "start": "NODE_ENV=production serverless offline --noTimeout",
+    "start-offline": "NODE_ENV=development serverless offline --noTimeout",
+    "dev": "nodemon index.js",
+    "test": "echo 'test running...'",
+    "test:watch": "jest --watch",
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build": "serverless package",
+    "logs": "serverless logs -f api -t",
+    "invoke-local": "serverless invoke local -f api",
+    "debug": "SLS_DEBUG=* node --inspect ./node_modules/.bin/serverless offline -s dev"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@aws-sdk/lib-dynamodb": "^3.606.0",
+    "@clerk/clerk-sdk-node": "^5.0.24",
+    "@sentry/aws-serverless": "^8.22.0",
+    "@sentry/profiling-node": "^8.22.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "openai": "^4.52.2",
+    "serverless": "^4.1.22",
+    "serverless-http": "^3.2.0",
+    "tiktoken": "^1.0.15",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.602.0",
+    "@aws-sdk/client-dynamodb": "^3.602.0",
+    "@aws-sdk/client-secrets-manager": "^3.609.0",
+    "@aws-sdk/client-sns": "^3.623.0",
+    "@eslint/js": "^9.6.0",
+    "eslint": "^9.6.0",
+    "globals": "^15.6.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "serverless-offline": "^14.0.0",
+    "serverless-plugin-tracing": "^2.0.0"
+  }
+}
