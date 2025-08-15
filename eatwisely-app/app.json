@@ -1,0 +1,89 @@
+{
+  "expo": {
+    "name": "Eatwisely",
+    "slug": "eatwisely",
+    "version": "1.0.79",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "eat-wisely",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/splash_ios.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff",
+      "dark": {
+        "image": "./assets/images/splash_ios.png",
+        "resizeMode": "cover",
+        "backgroundColor": "#000000"
+      }
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.hyggesoftware.eatwisely.new",
+      "splash": {
+        "image": "./assets/images/splash_ios.png",
+        "resizeMode": "cover",
+        "backgroundColor": "#ffffff",
+        "dark": {
+          "image": "./assets/images/splash_ios.png",
+          "resizeMode": "cover",
+          "backgroundColor": "#000000"
+        }
+      },
+      "googleServicesFile": "./ios/GoogleService-Info.plist",
+      "entitlements": {
+        "aps-environment": "production",
+        "com.apple.developer.applesignin": ["Default"]
+      }
+    },
+    "android": {
+      "package": "com.hyggesoftware.eatwisely",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon_android.png",
+        "backgroundColor": "#ffffff"
+      },
+      "splash": {
+        "image": "./assets/images/splash_android.png",
+        "resizeMode": "cover",
+        "backgroundColor": "#ffffff",
+        "dark": {
+          "image": "./assets/images/splash_android.png",
+          "resizeMode": "cover",
+          "backgroundColor": "#000000"
+        }
+      },
+      "googleServicesFile": "./android/app/google-services.json",
+      "versionCode": 24
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "project": "eatwisely",
+          "organization": "eatwisely-llc"
+        }
+      ],
+      "react-native-iap"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "e4748051-8b3f-4bec-9dba-e2795cd96e13"
+      }
+    },
+    "owner": "eatwisely"
+  }
+}

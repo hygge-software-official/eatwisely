@@ -1,0 +1,35 @@
+graph TB
+    A[App Entry] --> B[Expo Router]
+    B --> C[Screens]
+    B --> D[Components]
+    C --> E[Recipe Screen]
+    C --> F[Profile Screen]
+    C --> G[Add Credits Screen]
+    E --> H[useRecipeScreen Hook]
+    E --> I[recipe.styles]
+    D --> J[BottomBar]
+    D --> K[GenerateRecipeModal]
+    D --> L[SplashScreenComponent]
+    
+    M[Native Modules] --> N[iOS]
+    M --> O[Android]
+    N --> P[AppDelegate]
+    N --> Q[Podfile]
+    O --> R[MainActivity]
+    O --> S[MainApplication]
+    
+    T[Services] --> U[API Calls]
+    T --> V[Firebase Messaging]
+    
+    W[State Management] --> X[React Context]
+    W --> Y[Custom Hooks]
+    
+    Z[Styling] --> AA[StyleSheet]
+    
+    AB[Navigation] --> AC[Expo Router]
+    
+    AD[Error Handling] --> AE[Sentry]
+    
+    AF[Analytics] --> AG[Mixpanel]
+    
+    AH[In-App Purchases] --> AI[React Native IAP]

@@ -1,0 +1,52 @@
+{
+  "cli": {
+    "version": ">= 10.2.1",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "resourceClass": "m-medium"
+      },
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "resourceClass": "m-medium"
+      },
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "production": {
+      "ios": {
+        "resourceClass": "m-medium",
+        "releaseChannel": "production",
+        "image": "latest"
+      },
+      "android": {
+        "image": "latest"
+      },
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "dmitry.s@hygge.software",
+        "appleTeamId": "4J9U8HVK5A",
+        "ascAppId": "6557078353"
+      }
+    }
+  }
+}
